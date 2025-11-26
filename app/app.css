@@ -26,8 +26,9 @@ body {
 main {
   @apply min-h-screen pt-10;
 }
+
 h1 {
-  @apply max-sm:text-[3rem] text-6xl  text-gradient leading-tight xl:tracking-[-2px] font-semibold;
+  @apply max-sm:text-[3rem] text-6xl text-gradient leading-tight xl:tracking-[-2px] font-semibold;
 }
 
 h2 {
@@ -37,6 +38,7 @@ h2 {
 label {
   @apply text-dark-200;
 }
+
 input {
   @apply w-full p-4 inset-shadow rounded-2xl focus:outline-none bg-white;
 }
@@ -51,7 +53,7 @@ form {
 
 @layer components {
   .text-gradient {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-[#AB8C95] via-[#000000] to-[#8E97C5];
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-[#10b981] via-[#059669] to-[#06b6d4];
   }
   .gradient-border {
     @apply bg-gradient-to-b from-light-blue-100 to-light-blue-200 p-4 rounded-2xl;
@@ -117,11 +119,11 @@ form {
 }
 
 @utility bg-gradient {
-  background: linear-gradient(to bottom, #f0f4ff 60%, #fa7185cc);
+  background: linear-gradient(to bottom, #f0f4ff 60%, #10b98133);
 }
 
 @utility text-gradient {
-  @apply bg-clip-text text-transparent bg-gradient-to-r from-[#AB8C95] via-[#000000] to-[#8E97C5];
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-[#10b981] via-[#059669] to-[#06b6d4];
 }
 
 @utility gradient-hover {
@@ -129,16 +131,16 @@ form {
 }
 
 @utility primary-gradient {
-  background: linear-gradient(to bottom, #8e98ff, #606beb);
-  box-shadow: 0px 74px 21px 0px #6678ef00;
+  background: linear-gradient(to bottom, #10b981, #06b6d4);
+  box-shadow: 0px 74px 21px 0px #10b98100;
 }
 
 @utility primary-gradient-hover {
-  background: linear-gradient(to bottom, #717dff, #4957eb);
+  background: linear-gradient(to bottom, #059669, #0891b2);
 }
 
 @utility inset-shadow {
-  box-shadow: inset 0 0 12px 0 rgba(36, 99, 235, 0.2);
+  box-shadow: inset 0 0 12px 0 rgba(16, 185, 129, 0.2);
   backdrop-filter: blur(10px);
 }
 
