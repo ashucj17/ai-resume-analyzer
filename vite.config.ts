@@ -7,7 +7,10 @@ export default defineConfig(({ mode }) => ({
   base: mode === "production" ? "/ai-resume-analyzer/" : "/",
   build: {
     outDir: "build/client",
-    assetsDir: "assets",
   },
-  plugins: [tailwindcss(), reactRouter(), tsconfigPaths()],
+  plugins: [
+    tailwindcss(),
+    reactRouter(),
+    tsconfigPaths()
+  ],
 }));
