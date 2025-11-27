@@ -1,87 +1,125 @@
-# Welcome to React Router!
+# AI Resume Analyzer
 
-A modern, production-ready template for building full-stack React applications using React Router.
+AI Resume Analyzer is a web application that helps users analyze resumes using AI, track job applications, and generate insights for improving their profiles. The project is built using **React Router v7**, **TailwindCSS**, and **TypeScript**, and it integrates AI-powered features to enhance the user experience.
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/remix-run/react-router-templates/tree/main/default)
+---
 
-## Features
+## 🚀 Features
 
-- 🚀 Server-side rendering
-- ⚡️ Hot Module Replacement (HMR)
-- 📦 Asset bundling and optimization
-- 🔄 Data loading and mutations
-- 🔒 TypeScript by default
-- 🎉 TailwindCSS for styling
-- 📖 [React Router docs](https://reactrouter.com/)
+* **AI Resume Analysis** – Upload a PDF resume and receive AI‑powered suggestions.
+* **Job Application Tracker** – Manage and track job applications visually.
+* **Clean & Modern UI** – Fully responsive layout with dynamic SVG backgrounds.
+* **Authentication Pages** – Login and signup pages with custom backgrounds.
+* **PDF to Image Conversion** – Converts uploaded PDFs into preview images for analysis.
 
-## Getting Started
+---
 
-### Installation
+## 🏗️ Tech Stack
 
-Install the dependencies:
+* **Framework:** React + React Router v7
+* **Language:** TypeScript
+* **Styling:** TailwindCSS
+* **AI Integration:** OpenAI API (or your chosen provider)
+* **File Handling:** pdfjs, custom utilities
 
-```bash
-npm install
+---
+
+## 📁 Project Structure
+
+```
+app/
+│
+├── components/        # Reusable UI components
+├── constants/         # Static values, instructions, configs
+├── lib/               # Utility functions, stores, API wrappers
+├── routes/            # Application pages (home, auth, etc.)
+├── styles/            # Global styles and Tailwind config
+├── public/            # SVG backgrounds & static assets
+└── app.css            # Root styles
 ```
 
-### Development
+---
 
-Start the development server with HMR:
+## ⚙️ Setup & Installation
 
 ```bash
+git clone <your-repo-url>
+cd ai-resume-analyzer
+npm install
 npm run dev
 ```
 
-Your application will be available at `http://localhost:5173`.
+Your project will now be available at:
 
-## Building for Production
+```
+http://localhost:5173
+```
 
-Create a production build:
+---
+
+## 🔧 Environment Variables
+
+Create a `.env` file and add:
+
+```
+VITE_OPENAI_API_KEY=your_key_here
+```
+
+(Replace with your actual API key.)
+
+---
+
+## 📄 SVG Background System
+
+The project uses three main background SVGs:
+
+* **bg-main.svg** – Homepage
+* **bg-auth.svg** – Authentication pages
+* **bg-small.svg** – Smaller screens
+
+Each background shares the same **primary gradient** for brand consistency.
+
+---
+
+## 📦 Important Utilities
+
+### `prepareInstructions`
+
+Generates structured instructions for the AI resume analysis prompt.
+
+### `convertPdfToImage`
+
+Converts uploaded PDF pages into preview images.
+
+### `usePuterStore`
+
+Global state store for file management.
+
+---
+
+## 🚀 Deployment
+
+You can deploy the app to:
+
+* **Vercel**
+* **Netlify**
+* **Cloudflare Pages**
+* Any static hosting supporting Vite builds
+
+Build the project using:
 
 ```bash
 npm run build
 ```
 
-## Deployment
+---
 
-### Docker Deployment
+## 📌 Roadmap
 
-To build and run using Docker:
-
-```bash
-docker build -t my-app .
-
-# Run the container
-docker run -p 3000:3000 my-app
-```
-
-The containerized application can be deployed to any platform that supports Docker, including:
-
-- AWS ECS
-- Google Cloud Run
-- Azure Container Apps
-- Digital Ocean App Platform
-- Fly.io
-- Railway
-
-### DIY Deployment
-
-If you're familiar with deploying Node applications, the built-in app server is production-ready.
-
-Make sure to deploy the output of `npm run build`
-
-```
-├── package.json
-├── package-lock.json (or pnpm-lock.yaml, or bun.lockb)
-├── build/
-│   ├── client/    # Static assets
-│   └── server/    # Server-side code
-```
-
-## Styling
-
-This template comes with [Tailwind CSS](https://tailwindcss.com/) already configured for a simple default starting experience. You can use whatever CSS framework you prefer.
+* Add resume scoring system
+* Add job application analytics
+* Add dark mode
+* Add resume template generator
 
 ---
 
-Built with ❤️ using React Router.
