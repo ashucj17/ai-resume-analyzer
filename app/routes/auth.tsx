@@ -1,36 +1,21 @@
-import { usePuterStore } from "~/lib/puter";
-import { useEffect } from "react";
-import { useLocation, useNavigate } from "react-router";
+import {usePuterStore} from "~/lib/puter";
+import {useEffect} from "react";
+import {useLocation, useNavigate} from "react-router";
 
 export const meta = () => ([
-    { title: 'CareerForge | Auth' },
+    { title: 'Resumind | Auth' },
     { name: 'description', content: 'Log into your account' },
-]);
+])
 
 const Auth = () => {
     const { isLoading, auth } = usePuterStore();
     const location = useLocation();
+    const next = location.search.split('next=')[1];
     const navigate = useNavigate();
-    
-    const next = new URLSearchParams(location.search).get('next') || '/';
 
     useEffect(() => {
-        if (auth.isAuthenticated && next) {
-            navigate(next);
-        }
-    }, [auth.isAuthenticated, next, navigate]);
-
-    const getButtonContent = () => {
-        if (isLoading) {
-            return { text: 'Signing you in...', onClick: undefined, className: 'animate-pulse' };
-        }
-        if (auth.isAuthenticated) {
-            return { text: 'Log Out', onClick: auth.signOut, className: '' };
-        }
-        return { text: 'Log In', onClick: auth.signIn, className: '' };
-    };
-
-    const buttonConfig = getButtonContent();
+        if(auth.isAuthenticated) navigate(next);
+    }, [auth.isAuthenticated, next])
 
     return (
         <main className="bg-[url('/images/bg-auth.svg')] bg-cover min-h-screen flex items-center justify-center">
@@ -40,17 +25,29 @@ const Auth = () => {
                         <h1>Welcome</h1>
                         <h2>Log In to Continue Your Job Journey</h2>
                     </div>
-                    <button 
-                        className={`auth-button ${buttonConfig.className}`}
-                        onClick={buttonConfig.onClick}
-                        disabled={isLoading}
-                    >
-                        <p>{buttonConfig.text}</p>
-                    </button>
+                    <div>
+                        {isLoading ? (
+                            <button className="auth-button animate-pulse">
+                                <p>Signing you in...</p>
+                            </button>
+                        ) : (
+                            <>
+                                {auth.isAuthenticated ? (
+                                    <button className="auth-button" onClick={auth.signOut}>
+                                        <p>Log Out</p>
+                                    </button>
+                                ) : (
+                                    <button className="auth-button" onClick={auth.signIn}>
+                                        <p>Log In</p>
+                                    </button>
+                                )}
+                            </>
+                        )}
+                    </div>
                 </section>
             </div>
         </main>
-    );
-};
+    )
+}
 
-export default Auth;
+export default Auth
